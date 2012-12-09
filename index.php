@@ -56,6 +56,7 @@
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-36932606-1']);
+      _gaq.push(['_setDomainName', 'canileave.com']);
       _gaq.push(['_trackPageview']);
 
       (function() {
