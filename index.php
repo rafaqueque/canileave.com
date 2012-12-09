@@ -2,7 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Can I leave?</title>
+    <meta property='og:title' content='Can I leave my home safely? — Weather Report' />
+    <meta property='og:description' content='Just a stupid website to check the weather before you leave home. Powered by YQL.' />
+    <meta property='og:site_name' content='Can I leave my home safely? — Weather Report' />
+    <title>Can I leave my home safely? — Weather Report</title>
     <link href="css/style.css" rel="stylesheet" media="screen">
   </head>
   <body>
