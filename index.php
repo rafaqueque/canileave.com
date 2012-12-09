@@ -24,6 +24,9 @@
       <form method='get'>
         Hey <input type='text' class='input-big' name='place' placeholder='city...' value='<?php echo $_GET['place']; ?>'>, can I leave my home safely?
       </form>
+      
+      <span class='small-text'>#protip: type the city name above and press enter.</span><br>
+
       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://canileave.com" data-text="Can I leave my home safely? — Weather Report —">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
