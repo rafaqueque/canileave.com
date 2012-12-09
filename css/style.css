@@ -3,8 +3,6 @@ body
 	padding:0;
 	margin:0;
 	font-family:Arial;
-	font-size:50px;
-	text-transform:uppercase;
 }
 
 .container
@@ -12,6 +10,22 @@ body
 	margin:150px auto;
 	width:70%;
 	text-align:center;
+	font-size:50px;
+	text-transform:uppercase;
+}
+
+.top-right
+{
+	padding:5px;
+	font-size:13px;
+	float:right;
+	background-color:#A5A4A4;
+	color:white;
+}
+
+.top-right a, .top-right a:visited
+{
+	color:black;
 }
 
 .input-big

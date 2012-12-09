@@ -7,11 +7,17 @@
   </head>
   <body>
     
+    <div class='top-right'>
+      a stupid website created by <b>rafaqueque</b> * <a target='_blank' href='http://twitter.com/rafaqueque'>twitter</a> / <a target='_blank' href='http://github.com/rafaqueque'>github</a>
+    </div>
+    <div style='clear:both'></div>
+
     <div class='container'>
       
       <form method='get'>
         Hey <input type='text' class='input-big' name='place' placeholder='city...' value='<?php echo $_GET['place']; ?>'>, can I leave my home safely?
       </form>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Frafael.pt%2Fcanileave&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
       <br><br>
 
 
