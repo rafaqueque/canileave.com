@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
+                  website: http://ogp.me/ns/website#">
     <meta charset="UTF-8" />
+    <meta property="og:type" content="blog"> 
+    <meta property="og:url" content="http://rafael.pt/canileave/"> 
     <meta property='og:title' content='Can I leave my home safely? — Weather Report' />
-    <meta property='og:description' content='Just a stupid website to check the weather before you leave home. Powered by YQL.' />
     <meta property='og:site_name' content='Can I leave my home safely? — Weather Report' />
+    <meta property='og:description' content='Just a stupid website to check the weather before you leave home. Powered by YQL.' />
+    <meta property="og:image" content="http://rafael.pt/canileave/img/cloud.jpg">
     <title>Can I leave my home safely? — Weather Report</title>
     <link href="css/style.css" rel="stylesheet" media="screen">
   </head>
@@ -20,7 +24,7 @@
       <form method='get'>
         Hey <input type='text' class='input-big' name='place' placeholder='city...' value='<?php echo $_GET['place']; ?>'>, can I leave my home safely?
       </form>
-      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Frafael.pt%2Fcanileave&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Frafael.pt%2Fcanileave%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
       <br><br>
 
 
