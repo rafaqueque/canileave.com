@@ -1,0 +1,30 @@
+body 
+{
+	padding:0;
+	margin:0;
+	font-family:Arial;
+	font-size:50px;
+	text-transform:uppercase;
+}
+
+.container
+{
+	margin:150px auto;
+	width:70%;
+	text-align:center;
+}
+
+.input-big
+{
+	padding:0;
+	margin:0;
+	font-size:50px;
+	width:250px;
+	color:#A5A4A4;
+	text-transform:uppercase;
+}
+
+b.colored
+{
+	color:#A5A4A4;
+}
