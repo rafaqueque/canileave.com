@@ -3,13 +3,20 @@
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
                   website: http://ogp.me/ns/website#">
     <meta charset="UTF-8" />
+    
+    <!-- Open Graph -->
     <meta property="og:type" content="blog"> 
     <meta property="og:url" content="http://canileave.com/"> 
-    <meta property='og:title' content='Can I leave my home safely? — Weather Report' />
-    <meta property='og:site_name' content='Can I leave my home safely? — Weather Report' />
-    <meta property='og:description' content='Just a stupid website to check the weather before you leave home. Powered by YQL.' />
+    <meta property='og:title' content='Can I leave my home safely? — Real-time Weather Report' />
+    <meta property='og:site_name' content='Can I leave my home safely? — Real-time Weather Report' />
+    <meta property='og:description' content='Real-time weather report.' />
     <meta property="og:image" content="http://canileave.com/img/cloud.jpg">
-    <title>Can I leave my home safely? — Weather Report</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Real-time weather report.">
+    <meta name="keywords" content="weather, real time, live, weather report, climate, report">
+    <title>Can I leave my home safely? — Real-time Weather Report</title>
+
     <link href="css/style.css" rel="stylesheet" media="screen">
   </head>
   <body>
