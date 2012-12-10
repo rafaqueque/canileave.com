@@ -4,7 +4,7 @@
 		Name: SimpleWeather
 		Description: Just a simple wrapper to get weather information from Yahoo YQL service.
 		Author: rafaqueque
-		Version: 1.0 (first release)
+		Version: 1.1
 	*/
 	
 	class SimpleWeather
@@ -54,8 +54,11 @@
 
 					$data['location'] = $object->query->results->channel->location;
 					$data['current_condition'] = $object->query->results->channel->item->condition;
+					$data['current_condition']->wind = $object->query->results->channel->wind->speed;
+					$data['current_condition']->humidity = $object->query->results->channel->atmosphere->humidity;
 					$data['forecast_today'] = $object->query->results->channel->item->forecast[0];
 					$data['forecast_tomorrow'] = $object->query->results->channel->item->forecast[0];
+
 
 					$this->result = json_encode($data);
 
