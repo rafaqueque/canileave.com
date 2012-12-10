@@ -15,7 +15,7 @@
   <body>
     
     <div class='top-right'>
-      a stupid website created by <b>rafaqueque</b> * <a target='_blank' href='http://twitter.com/rafaqueque'>twitter</a> / <a target='_blank' href='http://github.com/rafaqueque'>github</a>
+      a useless website created by <b>rafaqueque</b> * <a target='_blank' href='http://rafael.pt'>rafael.pt</a>
     </div>
     <div style='clear:both'></div>
 
