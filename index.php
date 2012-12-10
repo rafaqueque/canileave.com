@@ -44,7 +44,9 @@
 
             if ($weather->getResult())
             {
-                echo "LOL SURE, can you handle <b class='colored'>".$weather->getResult()->current_condition->temp."ºC</b> and <b class='colored'>".$weather->getResult()->current_condition->text."</b> weather?";
+                echo "LOL SURE, can you handle <b class='colored'>".$weather->getResult()->current_condition->temp."ºC</b> 
+                      and <b class='colored'>".$weather->getResult()->current_condition->text."</b> weather? 
+                      Oh, <b class='colored'>".$weather->getResult()->current_condition->humidity."%</b> humidity and <b class='colored'>".round($weather->getResult()->current_condition->wind * 1.60934)."km/h</b> winds too.";
             }
             else
             {
