@@ -1,0 +1,139 @@
+# 1 YEAR
+
+<FilesMatch "\.(ico|pdf|flv)$">
+
+Header set Cache-Control "max-age=29030400, public"
+
+</FilesMatch>
+
+# 1 WEEK
+
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+
+Header set Cache-Control "max-age=604800, public"
+
+</FilesMatch>
+
+# 2 DAYS
+
+<FilesMatch "\.(xml|txt|css|js)$">
+
+Header set Cache-Control "max-age=172800, proxy-revalidate"
+
+</FilesMatch>
+
+# 1 MIN
+
+<FilesMatch "\.(html|htm|php)$">
+
+Header set Cache-Control "max-age=60, private, proxy-revalidate"
+
+</FilesMatch>
+
+
+
+
+
+
+
+<IfModule mod_expires.c>
+
+ExpiresActive On ExpiresByType text/html "access plus 1 days"
+
+ExpiresByType image/gif "access plus 2 weeks"
+
+ExpiresByType image/jpeg "access plus 2 weeks"
+
+ExpiresByType image/jpg "access plus 2 weeks"
+
+ExpiresByType image/png "access plus 2 weeks"
+
+ExpiresByType image/x-icon "access plus 1 years"
+
+ExpiresByType text/css "access plus 2 weeks"
+
+ExpiresByType text/javascript "access plus 2 weeks"
+
+ExpiresByType application/x-javascript "access plus 2 weeks"
+
+ExpiresByType application/x-shockwave-flash "access plus 2 weeks"
+
+</IfModule>
+
+
+
+
+
+
+
+
+
+
+<IfModule mod_gzip.c>
+
+mod_gzip_static_suffix .gz
+
+AddEncoding gzip .gz
+
+AddEncoding gzip .gzip
+
+mod_gzip_on YES
+
+mod_gzip_handle_methods GET
+
+mod_gzip_temp_dir /tmp
+
+mod_gzip_can_negotiate Yes
+
+mod_gzip_dechunk Yes
+
+mod_gzip_send_vary On
+
+mod_gzip_update_static No
+
+mod_gzip_keep_workfiles No
+
+mod_gzip_minimum_file_size 250
+
+mod_gzip_maximum_file_size 1048576
+
+mod_gzip_maximum_inmem_size 60000
+
+mod_gzip_min_http 1000
+
+mod_gzip_item_exclude reqheader "User-agent: Mozilla/4.0[678]"
+
+mod_gzip_item_include mime ^application/pdf$
+
+mod_gzip_item_include mime ^image/
+
+mod_gzip_item_include mime ^application/x-javascript$
+
+mod_gzip_item_include file .js$
+
+mod_gzip_item_include file .css$
+
+mod_gzip_item_include mime ^text/.*
+
+mod_gzip_item_include file .html$
+
+mod_gzip_item_include file .pl$
+
+mod_gzip_item_include file .cgi$
+
+mod_gzip_item_include handler ^cgi-script$
+
+mod_gzip_item_include mime ^httpd/unix-directory$
+
+mod_gzip_item_include mime ^application/postscript$
+
+</IfModule>
+
+
+
+
+# data compression
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript text/css application/javascript
+
+
