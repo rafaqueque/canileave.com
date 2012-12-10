@@ -31,7 +31,7 @@
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
       <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcanileave.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
-      <br><br>
+      <br>
 
 
       <?php 
@@ -44,13 +44,14 @@
 
             if ($weather->getResult())
             {
+                echo "<span class='small-text'>interpreted as: ".$weather->getResult()->location->city.(($weather->getResult()->location->country) ? ", ".$weather->getResult()->location->country : "")."</span><br>";
                 echo "LOL SURE, can you handle <b class='colored'>".$weather->getResult()->current_condition->temp."ºC</b> 
                       and <b class='colored'>".$weather->getResult()->current_condition->text."</b> weather? 
                       Oh, <b class='colored'>".$weather->getResult()->current_condition->humidity."%</b> humidity and <b class='colored'>".round($weather->getResult()->current_condition->wind * 1.60934)."km/h</b> winds too.";
             }
             else
             {
-                echo "City not found, stupid!";
+                echo "<br><br>City not found, stupid!";
             }
         }
 
