@@ -30,14 +30,17 @@ body
 
 .input-big
 {
+	font-family:Arial;
 	padding:0;
 	margin:0;
 	font-size:50px;
-	width:280px;
+	width:330px;
 	color:#A5A4A4;
 	text-transform:uppercase;
 	outline:none;
-	border:1px solid #eee;
+	border:0;
+	border-bottom:1px solid #ddd;
+	font-weight:bolder;
 }
 
 b.colored
