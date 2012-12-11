@@ -33,9 +33,11 @@ body
 	padding:0;
 	margin:0;
 	font-size:50px;
-	width:250px;
+	width:280px;
 	color:#A5A4A4;
 	text-transform:uppercase;
+	outline:none;
+	border:1px solid #eee;
 }
 
 b.colored

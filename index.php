@@ -26,9 +26,9 @@
 
     <div class='container'>
       <form method='get'>
-        Hey <input type='text' class='input-big' name='place' placeholder='city...' value='<?php echo $_GET['place']; ?>'>, can I leave my home safely?
+        Hey <input type='text' class='input-big' name='place' placeholder='city...' value='<?php echo $_GET['place']; ?>' <?php echo ((!isset($_GET['place'])) ? "autofocus='autofocus'" : ""); ?>>, can I leave my home safely?
       </form>
-      
+       
       <span class='small-text'>#protip: type the city name above and press enter.</span><br>
 
       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://canileave.com" data-text="Can I leave my home safely? — Real-time Weather Report —">Tweet</a>
