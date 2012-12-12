@@ -1,3 +1,12 @@
+<?php 
+  
+  /* legacy prevention */
+  if ($_GET['place'])
+  {
+    header("Location: /#".$_GET['place']);
+  }
+
+?>
 <!DOCTYPE html>
 <html>
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
@@ -14,7 +23,9 @@
     <title>Can I leave? - Real-time Weather Report</title>
 
     <link href="css/style.css" rel="stylesheet" media="screen">
-    <script src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+
+    <script src="js/jquery/jquery.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
   </head>
   <body>
     
@@ -30,36 +41,13 @@
 
 
     <div class='container'>
-      <form method='get'>
-        Hey <input type='text' class='input-big' name='place' placeholder='city...' value='<?php echo stripslashes(filter_var($_GET['place'], FILTER_SANITIZE_STRING)); ?>' <?php echo ((!isset($_GET['place'])) ? "autofocus='autofocus'" : ""); ?>>, can I leave my home safely?
+      <form method='get' name='search'>
+        Hey <input type='text' class='input-big' name='place' placeholder='city...'>, can I leave my home safely?
       </form>
        
       <span class='small-text'>#protip: type the city name above and press enter.</span><br><br>
 
-
-      <?php 
-
-        if (isset($_GET['place']))
-        {
-        	include("lib/simpleweather.class.php");
-
-            $weather = new SimpleWeather(array("place" => $_GET['place'], "degrees" => "c"));
-
-            if ($weather->getResult())
-            {
-                
-                echo "LOL SURE, can you handle <b class='colored'>".$weather->getResult()->current_condition->temp."ºC</b> 
-                      and <b class='colored'>".$weather->getResult()->current_condition->text."</b> weather? 
-                      Oh, <b class='colored'>".$weather->getResult()->current_condition->humidity."%</b> humidity and <b class='colored'>".round($weather->getResult()->current_condition->wind * 1.60934)."km/h</b> winds too.";
-                echo "<br><span class='small-text'>interpreted as: ".$weather->getResult()->location->city.(($weather->getResult()->location->country) ? ", ".$weather->getResult()->location->country : "")."</span>";
-            }
-            else
-            {
-                echo "<br><br>City not found, stupid!";
-            }
-        }
-
-      ?>
+      <div id='search-result'></div>
     </div>
 
     <script type="text/javascript">
