@@ -29,8 +29,8 @@
   </head>
   <body>
     
-    <div class='top-right'>
-      created by <b>rafaqueque</b> / <a target='_blank' href='http://rafael.pt'>rafael.pt</a><br><br>
+    <div id='about-this'>
+      created by <b>rafaqueque</b> / <a target='_blank' href='http://rafael.pt'>rafael.pt</a><br>
       
       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://canileave.com" data-text="Can I leave my home safely? — Real-time Weather Report —">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -42,10 +42,12 @@
 
     <div class='container'>
       <form method='get' name='search'>
-        Hey <input type='text' class='input-big' name='place' placeholder='city...'>, can I leave my home safely?
+        <span class='headline-text uppercase'>Hey <input type='text' class='input-big' name='place' placeholder='city...' autofocus='autofocus'>, <br>can I leave my home safely?</span>
+        <input type='hidden' name='woeid'>
+
+        <br><span class='normal-text faded'>#protip: type the city name above and press enter. if you prefer, you can <b><input type='checkbox' name='unit' value='f'> use Imperial/US unit system</b>.</span>
       </form>
-       
-      <span class='small-text'>#protip: type the city name above and press enter.</span><br><br>
+      
 
       <div id='search-result'></div>
     </div>
