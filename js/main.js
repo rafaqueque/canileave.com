@@ -13,8 +13,8 @@ function getWeatherAjax(_place, _woeid, _unit)
             $('#search-result').html('<img src="img/ajax-loader.gif">');
         },
         success: function(response){
+            $('input[type=checkbox][value='+_unit+']').attr('checked','checked');
             $('#search-result').html(response);
-            $('input[type=radio][value='+_unit+']').attr('checked','checked');
         }
     });
 
