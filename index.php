@@ -25,7 +25,7 @@
     <link href="css/style.css" rel="stylesheet" media="screen">
 
     <script src="js/jquery/jquery.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/main.js?release=4" type="text/javascript"></script>
   </head>
   <body>
     
