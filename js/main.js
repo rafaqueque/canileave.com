@@ -62,6 +62,20 @@ $(document).ready(function(){
         {
            getWeatherFromHash();
         }
+        else
+        {
+            $.ajax({
+                url: 'ajax-requests/fetch_geolocation.php',
+                cache: false,
+                beforeSend: function(){
+                    $('form[name=search] input[name=place]').val('...');
+                },
+                success: function(response){
+                    $('form[name=search] input[name=place]').val(response);
+                    $('form[name=search]').submit();
+                }
+            });
+        }
     });
 
     $('form[name=search]').on('submit', function(event){
