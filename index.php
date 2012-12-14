@@ -19,7 +19,7 @@
     <meta property='og:description' content='Are you really safe from getting frozen when you leave home? Check the weather in your city in real-time.' />
     <meta property="og:image" content="http://canileave.com/img/cloud.jpg">
     <meta name="description" content="Are you really safe from getting frozen when you leave home? Check the weather in your city in real-time.">
-    <meta name="keywords" content="weather, real time, live, weather report, climate, report">
+    <meta name="keywords" content="weather, real time, live, weather report, climate, report, snow, sun, wind, rain, storm, forecast, weather forecast, tempestade, temperatura, clima, tempo real, chuva, vento, sol, neve">
     <title>Can I leave? - Real-time Weather Report</title>
 
     <link href="css/style.css" rel="stylesheet" media="screen">
