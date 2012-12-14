@@ -45,7 +45,7 @@
         <span class='headline-text uppercase'>Hey <input type='text' class='input-big' name='place' placeholder='city...' autofocus='autofocus'>, <br>can I leave my home safely?</span>
         <input type='hidden' name='woeid'>
 
-        <br><span class='normal-text faded'>#protip: type the city name above and press enter. if you prefer, you can <b><input type='checkbox' id='unit' name='unit' value='f'><label for='unit'>use Imperial/US unit system</label></b>.</span>
+        <br><span class='normal-text faded'>#protip: Type the city name above and press enter. If you prefer, you can <b><input type='checkbox' id='unit' name='unit' value='f'><label for='unit'>use Imperial/US unit system</label></b>. Geo-location retrieved on first load might not be 100% accurate.</span>
       </form>
       
 

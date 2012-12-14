@@ -6,7 +6,7 @@
 
     if ($geo->geoplugin_region)
     {
-        echo $geo->geoplugin_city ? $geo->geoplugin_city : $geo->geoplugin_region;
+        echo $geo->geoplugin_city ? rawurlencode($geo->geoplugin_city) : rawurlencode($geo->geoplugin_region);
     }
     else
     {
