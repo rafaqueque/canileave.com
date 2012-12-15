@@ -2,7 +2,7 @@ function getWeatherAjax(_place, _woeid, _unit)
 {
 	if (!_unit)
 	{
-			_unit = 'c';
+		_unit = 'c';
 	}
 
 	$.ajax({
