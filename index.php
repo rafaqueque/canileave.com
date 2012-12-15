@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html>
-	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
-									website: http://ogp.me/ns/website#">
-		<meta charset="UTF-8" />
-		<meta property="og:type" content="blog"> 
-		<meta property="og:url" content="http://canileave.com/"> 
-		<meta property='og:title' content='Can I leave? - Real-time Weather Report' />
-		<meta property='og:site_name' content='Can I leave? - Real-time Weather Report' />
-		<meta property='og:description' content='Are you really safe from getting frozen when you leave home? Check the weather in your city in real-time.' />
-		<meta property="og:image" content="http://canileave.com/img/cloud.jpg">
-		<meta name="description" content="Are you really safe from getting frozen when you leave home? Check the weather in your city in real-time.">
-		<meta name="keywords" content="weather, real time, live, weather report, climate, report, snow, sun, wind, rain, storm, forecast, weather forecast, tempestade, temperatura, clima, tempo real, chuva, vento, sol, neve">
-		<title>Can I leave? - Real-time Weather Report</title>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# 
+                  website: http://ogp.me/ns/website#">
+    <meta charset="UTF-8" />
+    <meta property="og:type" content="blog"> 
+    <meta property="og:url" content="http://canileave.com/"> 
+    <meta property='og:title' content='Can I leave? - Real-time Weather Report' />
+    <meta property='og:site_name' content='Can I leave? - Real-time Weather Report' />
+    <meta property='og:description' content='Are you really safe from getting frozen when you leave home? Check the weather in your city in real-time.' />
+    <meta property="og:image" content="http://canileave.com/img/cloud.jpg">
+    <meta name="description" content="Are you really safe from getting frozen when you leave home? Check the weather in your city in real-time.">
+    <meta name="keywords" content="weather, real time, live, weather report, climate, report, snow, sun, wind, rain, storm, forecast, weather forecast, tempestade, temperatura, clima, tempo real, chuva, vento, sol, neve">
+    <title>Can I leave? - Real-time Weather Report</title>
 
-		<link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
 
-		<script src="js/jquery/jquery.js" type="text/javascript"></script>
-		<script src="js/main.js?release=4" type="text/javascript"></script>
-	</head>
-	<body>
-		
-		<div id='about-this'>
-			created by <b>rafaqueque</b> / <a target='_blank' href='http://rafael.pt'>rafael.pt</a><br>
-			
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://canileave.com" data-text="Can I leave my home safely? — Real-time Weather Report —">Tweet</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <script src="js/jquery/jquery.js" type="text/javascript"></script>
+    <script src="js/main.js?release=4" type="text/javascript"></script>
+  </head>
+  <body>
+    
+    <div id='about-this'>
+      created by <b>rafaqueque</b> / <a target='_blank' href='http://rafael.pt'>rafael.pt</a><br>
+      
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://canileave.com" data-text="Can I leave my home safely? — Real-time Weather Report —">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-			<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcanileave.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
-		</div>
-		<div style='clear:both'></div>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcanileave.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+    </div>
+    <div style='clear:both'></div>
 
 
-		<div class='container'>
-			<form method='get' name='search'>
-				<span class='headline-text uppercase'>Hey <input type='text' class='input-big' name='place' placeholder='city...' autofocus='autofocus'>, <br>can I leave my home safely?</span>
-				<input type='hidden' name='woeid'>
+    <div class='container'>
+      <form method='get' name='search'>
+        <span class='headline-text uppercase'>Hey <input type='text' class='input-big' name='place' placeholder='city...' autofocus='autofocus'>, <br>can I leave my home safely?</span>
+        <input type='hidden' name='woeid'>
 
-				<br><span class='normal-text faded'>#protip: Type the city name above and press enter. If you prefer, you can <b><input type='checkbox' id='unit' name='unit' value='f'><label for='unit'>use Imperial/US unit system</label></b>. Geo-location retrieved on first load might not be 100% accurate.</span>
-			</form>
-			
+        <br><span class='normal-text faded'>#protip: Type the city name above and press enter. If you prefer, you can <b><input type='checkbox' id='unit' name='unit' value='f'><label for='unit'>use Imperial/US unit system</label></b>. Geo-location retrieved on first load might not be 100% accurate.</span>
+      </form>
+      
 
-			<div id='search-result'></div>
-		</div>
+      <div id='search-result'></div>
+    </div>
 
-		<script type="text/javascript">
+    <script type="text/javascript">
 
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-36932606-1']);
-			_gaq.push(['_setDomainName', 'canileave.com']);
-			_gaq.push(['_trackPageview']);
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36932606-1']);
+      _gaq.push(['_setDomainName', 'canileave.com']);
+      _gaq.push(['_trackPageview']);
 
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
-		</script>
-	</body>
+    </script>
+  </body>
 </html>
