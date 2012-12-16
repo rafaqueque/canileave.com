@@ -11,7 +11,6 @@
   {
     protected $result;
 
-
     function get_geoplaces_yql($value="Lisbon, PT")
     {
       return "http://query.yahooapis.com/v1/public/yql?q=".urlencode(sprintf("select * from geo.places where text = '%s'", $value))."&format=json";
@@ -22,37 +21,35 @@
       return "http://query.yahooapis.com/v1/public/yql?q=".urlencode(sprintf("select * from weather.forecast where woeid=%d and u='%s'", $woeid, $degrees))."&format=json";
     }
 
-
     function api_call($yql)
     {
       return json_decode(file_get_contents($yql));
     }
 
-
-
     function __construct($options=array())
     {
-
-      if (!isset($options['woeid']) || $options['woeid'] == "")
+      $woeid = 0;
+      $woeid_alternatives = null;
+      
+      if (!isset($options['woeid']) || empty($options['woeid']))
       {
         $object = $this->api_call($this->get_geoplaces_yql($options['place']));
         
         if ($object->query->count > 0)
         {
-
           if (is_array($object->query->results->place))
           {
             $woeid = $object->query->results->place[0]->woeid;
 
             $woeid_alternatives = array();
+            
             foreach ($object->query->results->place as $temp_place)
             {
               array_push($woeid_alternatives, array("place" => $temp_place->name, 
-                                  "region" => $temp_place->admin1->content,
-                                  "country" => $temp_place->country->content, 
-                                  "woeid" => $temp_place->woeid));
+                                                    "region" => $temp_place->admin1->content,
+                                                    "country" => $temp_place->country->content, 
+                                                    "woeid" => $temp_place->woeid));
             }
-            
           }
           else
           {
@@ -65,10 +62,6 @@
       {
         $woeid = $options['woeid'];
       }
-
-
-
-
 
       if ($woeid > 0)
       {
@@ -88,22 +81,17 @@
         }
 
         $this->result = json_encode($data);
-
       }
       else
       {
         return false;
       }
-
-
     }
-
 
     function getResult()
     {
       return $this->result ? json_decode($this->result) : null;
     }
-
   }
 
 ?>
