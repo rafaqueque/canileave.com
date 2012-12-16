@@ -9,58 +9,50 @@ function changeUnits($unit="c", $type="speed", $value)
         break;
 
     case "temp":
-        return (($unit == "c") ? $value."ºC" : $value."ºF");
+        return (($unit == "c") ? $value."&#8451;" : $value."&#8457;");
         break;
   }
 }
 
-
 if (isset($_GET['place']))
 {
+  $json_data = array('state' => false, 'data' => null, 'alternatives' => array());
+
   include("../lib/simpleweather.class.php");
+  
+  $place = !empty($_GET['place']) ? $_GET['place'] : '';
+  $woeid = !empty($_GET['woeid']) ? $_GET['woeid'] : 0;
+  $unit = !empty($_GET['unit']) ? $_GET['unit'] : '';
 
-  $weather = new SimpleWeather(array("place" => $_GET['place'], "woeid" => $_GET['woeid'], "degrees" => $_GET['unit']));
+  $weather = new SimpleWeather(array('place' => $place, 'woeid' => $woeid, 'degrees' => $unit));
 
-  if ($weather->getResult()->location->city)
+  if (is_null($weather->getResult()))
   {
-
-    if ($weather->getResult()->search_alternatives)
-    {
-      $alternatives = array();
-      foreach (json_decode($weather->getResult()->search_alternatives) as $alternative)
-      {
-          array_push($alternatives, "<a class='alternative-link' href='#".rawurlencode($alternative->place)."/".$alternative->woeid."'>".$alternative->place.(($alternative->region) ? ", ".$alternative->region : "").(($alternative->country) ? ", ".$alternative->country : "")." &rarr;</a>");
-      }
-    }
-
-
-    echo "<span class='big-text uppercase'>
-    LOL SURE, can you handle <b class='colored'>".changeUnits($_GET['unit'], "temp", $weather->getResult()->current_condition->temp)."</b> 
-    and <b class='colored'>".$weather->getResult()->current_condition->text."</b> weather? 
-    Oh, <b class='colored'>".$weather->getResult()->current_condition->humidity."%</b> humidity and <b class='colored'>".changeUnits($_GET['unit'], "speed", $weather->getResult()->current_condition->wind)."</b> winds too.
-    </span>";
-
-    echo "<div id='notes-box'><span class='normal-text faded'>";
-    echo "Displaying results for <b>".$weather->getResult()->location->city.(($weather->getResult()->location->region) ? ", ".$weather->getResult()->location->region : "").(($weather->getResult()->location->country) ? ", ".$weather->getResult()->location->country : "")."</b>.";
-
-    if (is_array($alternatives))
-    {
-      echo "<br><br>Not the city you want? <a id='open-related-alternatives' href='javascript:;'>Click here</a> and choose a suggested search from the list. If you see duplicates or the city you clicked doesn't report any weather information, it's <b>Yahoo! YQL</b>'s fault.";
-      echo "<br><div id='search-related-alternatives' style='display:none;padding:5px;'>".implode("<br>", $alternatives)."</div>";
-    }
-    else
-    {
-      echo "<br><br>No related alternatives fetched.";
-    }
-
-    echo "</span></div>";
-
-
+    die(json_encode($json_data));
   }
-  else
+
+  $json_data['state'] = true;
+    
+  if (!empty($weather->getResult()->search_alternatives))
   {
-    echo "<span class='big-text uppercase'>No no, no weather!</span><br><span class='normal-text faded'>#note: Yahoo! sometimes doesn't show weather information even if the city shows up on the suggestions/alternatives list.</span>";
+    foreach (json_decode($weather->getResult()->search_alternatives) as $alternative)
+    {
+      array_push($json_data['alternatives'], array('place' => rawurlencode($alternative->place),
+                                                   'woeid' => $alternative->woeid,
+                                                   'region' => $alternative->region ? ', ' . $alternative->region : '',
+                                                   'country' => $alternative->country ? ', ' . $alternative->country : ''));
+    }
   }
+  
+  $json_data['data'] = array('temp' => changeUnits($unit, 'temp', $weather->getResult()->current_condition->temp),
+                             'text' => $weather->getResult()->current_condition->text,
+                             'humidity' => $weather->getResult()->current_condition->humidity,
+                             'wind_speed' => changeUnits($unit, 'speed', $weather->getResult()->current_condition->wind),
+                             'city' => $weather->getResult()->location->city,
+                             'region' => isset($weather->getResult()->location->region) ? ', ' . $weather->getResult()->location->region : '',
+                             'country' => isset($weather->getResult()->location->country) ? ', ' . $weather->getResult()->location->country : '');
+
+  die(json_encode($json_data));
 }
 
 ?>

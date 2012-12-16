@@ -16,6 +16,7 @@
     <link href="css/style.css" rel="stylesheet" media="screen">
 
     <script src="js/jquery/jquery.js" type="text/javascript"></script>
+    <script src= "http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" type="text/javascript"></script>
     <script src="js/main.js?release=4" type="text/javascript"></script>
   </head>
   <body>
@@ -38,10 +39,38 @@
 
         <br><span class='normal-text faded'>#protip: Type the city name above and press enter. If you prefer, you can <b><input type='checkbox' id='unit' name='unit' value='f'><label for='unit'>use Imperial/US unit system</label></b>. Geo-location retrieved on first load might not be 100% accurate.</span>
       </form>
-      
-
+ 
       <div id='search-result'></div>
     </div>
+    
+    <script id="errorTemplate" type="text/x-jquery-tmpl">
+      <span class='big-text uppercase'>No no, no weather!</span><br>
+      <span class='normal-text faded'>#note: Yahoo! sometimes doesn't show weather information even if the city shows up on the suggestions/alternatives list.</span>
+    </script>
+    
+    <script id="dataTemplate" type="text/x-jquery-tmpl">
+      <span class='big-text uppercase'>LOL SURE, can you handle <b class='colored'>${data.temp}</b> 
+      and <b class='colored'>${data.text}</b> weather? 
+      Oh, <b class='colored'>${data.humidity}%</b> humidity 
+      and <b class='colored'>${data.wind_speed}</b> winds too.</span>
+      
+      <div id='notes-box' class='normal-text faded'>
+        Displaying results for <b>${data.city}${data.region}${data.country}</b>
+        
+        {{if (alternatives.length > 0)}}
+        <br><br>Not the city you want? <a id='open-related-alternatives' href='javascript:void()'>Click here</a> and choose a suggested search from the list. If you see duplicates or the city you clicked doesn't report any weather information, it's <b>Yahoo! YQL</b>'s fault.
+        <br>
+        
+        <div id='search-related-alternatives' style='display:none;padding:5px;'>
+        {{each alternatives}}
+          <a class='alternative-link' href='#${place}/${woeid}'>${place}${region}${country} &rarr;</a><br />
+        {{/each}}
+        </div>
+        {{else}}
+        <br><br>No related alternatives fetched
+        {{/if}}
+      </div>
+    </script>  
 
     <script type="text/javascript">
 

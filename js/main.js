@@ -7,6 +7,7 @@ function getWeatherAjax(_place, _woeid, _unit)
 
   $.ajax({
     url: 'ajax-requests/fetch_weather.php',
+    dataType: 'json',
     data: { place: _place, woeid: _woeid, unit: _unit },
     cache: false,
     beforeSend: function(){
@@ -14,7 +15,11 @@ function getWeatherAjax(_place, _woeid, _unit)
     },
     success: function(response){
       $('input[type=checkbox][value='+_unit+']').attr('checked','checked');
-      $('#search-result').html(response);
+      
+      if (response.state)
+        $('#search-result').html($('#dataTemplate').tmpl(response));
+      else
+        $('#search-result').html($('#errorTemplate').html());
     }
   });
 
