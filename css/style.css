@@ -37,6 +37,18 @@ body
 }
 
 
+#call-to-action
+{
+	background-image: url('../img/call_to_action.png');
+	margin-top: -100px;
+	width: 253px;
+	height: 91px;
+	opacity: 0.3;
+	margin-left: 200px;
+	position: absolute;
+}
+
+
 
 .input-big
 {

@@ -1,0 +1,40 @@
+{{#has_weather}}
+  <span class='big-text uppercase'>
+  LOL SURE, can you handle <b class='colored'>{{temp}}</b> 
+  and <b class='colored'>{{weather}}</b> weather? 
+  Oh, <b class='colored'>{{humidity}}%</b> humidity and <b class='colored'>{{wind}}</b> winds too.
+  </span>
+
+  <div id='notes-box'>
+    <span class='normal-text faded'>
+    Displaying results for <b>{{location}}</b>
+
+    {{#has_alternatives}}
+      <br><br>
+      Not the city you want? <a id='open-related-alternatives' href='javascript:;'>Click here</a> and choose a suggested search from the list. If you see duplicates or the city you clicked doesn't report any weather information, it's <b>Yahoo! YQL</b>'s fault.
+      <br>
+      <div id='search-related-alternatives' style='display:none;padding:5px;'>
+        {{#alternatives}}
+          <a class='alternative-link' href='{{url}}'>{{place}} &rarr;</a><br>
+        {{/alternatives}}
+      </div>
+    {{/has_alternatives}}
+    {{^has_alternatives}}
+      <br><br>
+      No related alternatives fetched.
+    {{/has_alternatives}}
+
+    </span>
+  </div>
+{{/has_weather}}
+
+
+{{^has_weather}}
+  <span class='big-text uppercase'>
+    No no, no weather!
+  </span>
+  <br>
+  <span class='normal-text faded'>
+    #note: Yahoo! sometimes doesn't show weather information even if the city shows up on the suggestions/alternatives list.
+  </span>
+{{/has_weather}}
