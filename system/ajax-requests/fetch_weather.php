@@ -33,7 +33,7 @@
 
     if ($weather->getResult()->location->city)
     {
-
+      
       /* if the search has some alternative cities, store the alternatives to an array */
       if ($weather->getResult()->search_alternatives)
       {
@@ -58,7 +58,7 @@
       {
         $data['has_alternatives'] = true;
         $data['alternatives'] = $alternatives;
-      }
+      }  
     }
 
     /* return data json-encoded */

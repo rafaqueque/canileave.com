@@ -16,15 +16,6 @@ body
 	margin-top:40px;
 }
 
-#notes-box
-{
-	margin-top:40px;
-	padding:10px;
-	background-color:#E7E7E7;
-	color:#aaa;
-	border-radius:5px;
-}
-
 #about-this
 {
 	padding:10px;
@@ -48,6 +39,15 @@ body
 	position: absolute;
 }
 
+
+.rounded-box
+{
+	margin-top:40px;
+	padding:10px;
+	background-color:#E7E7E7;
+	color:#aaa;
+	border-radius:5px;
+}
 
 
 .input-big
