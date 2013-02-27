@@ -50,6 +50,13 @@ body
 	border-radius:5px;
 }
 
+.alert-box
+{
+	color: #B94A48;
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	margin-top:10px;
+}
 
 .input-big
 {

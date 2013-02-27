@@ -26,7 +26,8 @@
     $degrees = isset($_GET['unit']) ? $_GET['unit'] : "c";
 
     $data = array("has_weather" => false, 
-                  "has_alternatives" => false);
+                  "has_alternatives" => false,
+                  "has_strike_information" => false);
     
     /* get the weather information with pre-filled vars */
     $weather = new SimpleWeather(array("place" => $place, "woeid" => $woeid, "degrees" => $degrees));
@@ -59,6 +60,33 @@
         $data['has_alternatives'] = true;
         $data['alternatives'] = $alternatives;
       }  
+
+
+      /* check if there is any strike going on in Portugal. useful for us, portuguese people, trust me. */
+      $strikes = json_decode(file_get_contents("http://hagreve.pt/api/v1/strikes"));
+      
+      if ($strikes && $weather->getResult()->location->country === "Portugal")
+      {
+        $strikes_going = array();
+        foreach ($strikes as $strike)
+        {
+          if ((time() >= strtotime($strike->start_date) && time() <= strtotime($strike->end_date)) && !$strike->canceled)
+          {
+            array_push($strikes_going, array("company" => $strike->company->name,
+                                              "description" => $strike->description,
+                                              "from" => $strike->start_date,
+                                              "to" => $strike->end_date,
+                                              "source" => $strike->source_link));
+          }
+        }
+
+        if (is_array($strikes_going) && count($strikes_going) > 0)
+        {
+          $data['has_strike_information'] = true;
+          $data['strikes'] = $strikes_going;
+        }
+      }
+
     }
 
     /* return data json-encoded */
