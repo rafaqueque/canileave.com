@@ -87,6 +87,15 @@
         }
       }
 
+      /* random messages */
+      $random_messages = array("GO AHEAD CHAMP",
+                                "LOL SURE",
+                                "HELL NO",
+                                "TOUGH GUY UH",
+                                "CALM DOWN");
+      shuffle($random_messages);
+      $data['random_msg'] = reset($random_messages);
+
     }
 
     /* return data json-encoded */
